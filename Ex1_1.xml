@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<library>
+  <Technical_books> 
+  <book> 
+    <ISBN>41234AC</ISBN> 
+    <title>The Lord of the Rings</title> 
+    <author>Peter Pan</author>  
+  </book> 
+  <book> 
+    <ISBN>825667ER</ISBN> 
+    <title>So much the better</title> 
+    <author>Magic Johnson</author> 
+  </book> 
+
+  </Technical_books> 
+
+  <Cookery_books> 
+  <book> 
+    <ISBN>37145FG</ISBN> 
+    <title>Strawberry sweets</title> 
+    <author>Harrison Ford</author> 
+  </book> 
+  <book> 
+    <ISBN>725795TB</ISBN> 
+    <title>The end of the way</title> 
+    <author>Nolan Djokovic</author> 
+  </book> 
+
+  </Cookery_books>
+</library>

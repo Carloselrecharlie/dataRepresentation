@@ -1,2 +1,2 @@
 # dataRepresentation
-Exercise 1.1 of Data Representation. An .xml file that stores data for a library
+Labs for the module Data Representation from Higher Diploma in Data Analysis

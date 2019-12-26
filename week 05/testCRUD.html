@@ -1,0 +1,95 @@
+
+<!-- Lab 05.3: AJAX calls to REST, make the AJAX calls that will call the RESTful API. 
+The server serves out a RESTful api that performs CRUD operations on cars
+-->
+<html>
+    <head><title>test all CRUD operations</title></head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <body>
+        To get all the cars, click
+        <button onclick="getall()">here</button></br></br>
+		To create a new car, click
+        <button onclick="createCar()">here</button></br></br>
+		To update a car, click
+        <button onclick="updateCar()">here</button></br></br>
+		To delete a car, click
+        <button onclick="deleteCar()">here</button></br></br>
+		
+        <script>
+            function getall(){
+                $.ajax({
+                    url: "cars",
+                    method: "GET",
+                    data:"",
+                    dataType:"JSON",
+                    success: function(result){
+                        //console.log(result); // shows all results as one single instance
+                        for (car of result.cars){ // for loop to separate every result individually
+                            console.log(car);
+                        }
+                    },
+                    error: function(xhr,status, error){
+                        console.log("error "+status+" msg:"+error);
+                    }
+                })
+            }
+			
+			function createCar(){
+				var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","price":3000}
+				console.log(JSON.stringify(car));
+				$.ajax({
+					"url": "http://127.0.0.1:5000/cars",
+					"method":"POST",
+					"data":JSON.stringify(car),
+					"dataType": "JSON",
+					contentType: "application/json; charset=utf-8",
+					"success":function(result){
+					console.log(result);
+					document.getElementById("output").innerText = JSON.stringify(result);
+					},
+					"error":function(xhr,status,error){
+					console.log("error: "+status+" msg:"+error);
+					}
+				});
+			}
+			
+			function updateCar(){
+				var car = {"reg":"181 G 1234","make":"Ford","model":"Modeo","price":1900}
+				console.log(JSON.stringify(car));
+				$.ajax({
+					"url": "http://127.0.0.1:5000/cars/"+encodeURI(car.reg),
+					"method":"PUT",
+					"data":JSON.stringify(car),
+					"dataType": "JSON",
+					contentType: "application/json; charset=utf-8",
+					"success":function(result){
+					console.log(result);
+					document.getElementById("output").innerText = JSON.stringify(result);
+					},
+					"error":function(xhr,status,error){
+					console.log("error: "+status+" msg:"+error);
+					}
+				});
+			}
+			function deleteCar(){
+				var car = {"reg":"12 D 1234"}
+				console.log(JSON.stringify(car));
+				$.ajax({
+					"url": "http://127.0.0.1:5000/cars/"+encodeURI(car.reg),
+					"method":"DELETE",
+					"data":"",
+					"dataType": "JSON",
+					contentType: "application/json; charset=utf-8",
+					"success":function(result){
+					console.log(result);
+					document.getElementById("output").innerText = JSON.stringify(result);
+					},
+					"error":function(xhr,status,error){
+					console.log("error: "+status+" msg:"+error);
+					}
+				});
+			}
+        </script>
+    </body>
+    </html>
+

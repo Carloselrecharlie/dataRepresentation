@@ -1,8 +1,11 @@
+# Converts carviewer2.html to pdf (image) with the API html2pdf
+# Prints the response code to console
+
 import requests
 import json
 
 #html = '<h1>hello world</h1>This is html'
-f = open("../../week02/carviewer2.html", "r")
+f = open("../carviewerTest/carviewer2.html", "r")
 html = f.read()
 #print (html)
 
